@@ -2,30 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kazi Tauhid Mokbul Hussain | Aerospace Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Kazi Tauhid | Home</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+  <!-- AOS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+  >
+
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#" class="logo">Kazi Tauhid Mokbul Hussain</a>
-      <button class="menu-toggle">☰</button>
-      <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" data-aos="fade-down">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Kazi Tauhid</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="education.html">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="achievements.html">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="ideas.html">Ideas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero text-white text-center d-flex align-items-center" data-aos="zoom-in">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+      <h1 class="display-4 fw-bold">Advancing Autonomous UAV Systems</h1>
+      <p class="lead mb-4">Aerospace Engineer ⋅ Swarm Drone AI ⋅ Aspiring PhD Candidate</p>
+      <a href="research.html" class="btn btn-primary btn-lg me-2">
+        <i class="fas fa-rocket me-1"></i> Explore Projects
+      </a>
+      <a href="contact.html" class="btn btn-outline-light btn-lg">
+        <i class="fas fa-envelope me-1"></i> Contact Me
+      </a>
+    </div>
   </header>
 
-  <main>
-    <section id="hero">
-      <h1>Hi, I’m Kazi Tauhid Hussain</h1>
-      <p>Aspiring PhD Candidate in Aerospace Engineering</p>
-    </section>
-  </main>
+  <!-- KEY HIGHLIGHTS -->
+  <section id="highlights" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4" data-aos="fade-up">Key Highlights</h2>
+      <div class="row g-4 justify-content-center align-items-stretch text-center">
+        <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-box p-4 h-100">
+            <i class="fas fa-network-wired fa-3x mb-3 text-primary"></i>
+            <h5>Swarm Intelligence</h5>
+            <p>Distributed control & collision avoidance.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-box p-4 h-100">
+            <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+            <h5>Data Visualization</h5>
+            <p>Real-time telemetry & heading maps.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-box p-4 h-100">
+            <i class="fas fa-award fa-3x mb-3 text-primary"></i>
+            <h5>Competition Wins</h5>
+            <p>AIAA DBF 1st Place & national honors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="js/main.js"></script>
+  <!-- RECENT PROJECTS -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4" data-aos="fade-up">Recent Projects</h2>
+      <div class="row g-4 justify-content-center align-items-stretch">
+        <!-- Project Card 1 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="image-frame">
+              <img
+                src="assets/images/project1.jpg"
+                class="card-img-top"
+                alt="Swarm Drone AI"
+              >
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Swarm Drone AI</h5>
+              <p class="card-text">Adaptive formation & collision avoidance algorithms.</p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <a href="research.html#swarm" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <p class="mb-2">&copy; 2025 Kazi Tauhid</p>
+      <a href="https://github.com/kazitauhid" class="text-light me-3">
+        <i class="fab fa-github fa-lg"></i>
+      </a>
+      <a href="https://linkedin.com/in/tauhidhussain07" class="text-light me-3">
+        <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+      <a href="mailto:kazitauhid2025@gmail.com" class="text-light">
+        <i class="fas fa-envelope fa-lg"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
