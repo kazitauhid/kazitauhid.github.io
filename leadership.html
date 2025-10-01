@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leadership & Mentorship | Kazi Tauhid Hussain</title>
+
+<!-- Google Font (same as home) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<!-- Font Awesome (icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<!-- Bootstrap 5 (same version everywhere) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Your global styles -->
+<link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body { background:#121212; color:#ddd; }
+    .page-hero { color:#fff; }
+    .image-frame { width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:.5rem; }
+    .image-frame img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .card.bg-dark, .card.bg-secondary { border:1px solid rgba(255,255,255,0.08); }
+    .modal-content { background:#1b1b1b; color:#ddd; border:1px solid rgba(255,255,255,0.08); }
+    .nav-tabs .nav-link { color:#bbb; }
+    .nav-tabs .nav-link.active { color:#fff; background:transparent; border-color:#0d6efd #0d6efd #1b1b1b; }
+    .list-check li { margin-bottom:.45rem; }
+    .list-check i { color:#0d6efd; margin-right:.5rem; }
+  </style>
+</head>
+<body data-current="leadership">
+
+  <!-- Navigation Bar --> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html#home">Kazi Tauhid Hussain</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navFull">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navFull">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" data-section="home" href="index.html#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="about" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="projects" href="index.html#research">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="publications" href="index.html#publications">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="skills" href="index.html#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="leadership" href="index.html#leadership-preview">Leadership</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="courses" href="index.html#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="documents"   href="documents.html">Documents</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="contact" href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<link rel="stylesheet" href="css/styles.css" />
+
+<!-- HERO -->
+<header class="page-hero py-5 text-center mt-5" style="background:linear-gradient(180deg,#0f0f0f,#121212);">
+  <div class="container">
+    <h1 class="fw-bold" data-aos="fade-up">Leadership & Mentorship</h1>
+    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Click a card to view roles, impact, and media.</p>
+  </div>
+</header>
+
+<!-- TWO FEATURE CARDS -->
+<main class="container py-5">
+  <div class="row g-4 justify-content-center align-items-stretch">
+
+    <!-- Aircraft Design Competition -->
+    <div class="col-sm-6 col-lg-5" data-aos="zoom-in">
+      <div class="card bg-dark text-light h-100 shadow-sm">
+        <div class="image-frame">
+          <img src="assets/images/leadership_aircraft.jpg" alt="Aircraft Design Competitions">
+        </div>
+        <div class="card-body position-relative">
+          <h4 class="card-title mb-2">Aircraft Design Competition</h4>
+          <p class="text-muted mb-3">AIAA Design/Build/Fly — leadership and team contributions.</p>
+          <a href="#aircraft" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-aircraft">
+            View Roles
+          </a>
+          <a href="#aircraft" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modal-aircraft" aria-label="Open Aircraft Design roles"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Club Positions -->
+    <div class="col-sm-6 col-lg-5" data-aos="zoom-in" data-aos-delay="100">
+      <div class="card bg-dark text-light h-100 shadow-sm">
+        <div class="image-frame">
+          <img src="assets/images/leadership_club.jpg" alt="Club Positions">
+        </div>
+        <div class="card-body position-relative">
+          <h4 class="card-title mb-2">Club Positions</h4>
+          <p class="text-muted mb-3">MAAC · AIAA Student Branch · MISTPS.</p>
+          <a href="#club" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-club">
+            View Roles
+          </a>
+          <a href="#club" class="stretched-link" data-bs-toggle="modal" data-bs-target="#modal-club" aria-label="Open Club Positions roles"></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- =================== MODAL: AIRCRAFT DESIGN =================== -->
+<div class="modal fade" id="modal-aircraft" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Aircraft Design Competition — AIAA DBF</h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="tabs-aircraft" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-dbf2025" data-bs-toggle="tab" data-bs-target="#pane-dbf2025" type="button" role="tab">
+              DBF 2025 · Team Lead
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-dbf2024" data-bs-toggle="tab" data-bs-target="#pane-dbf2024" type="button" role="tab">
+              DBF 2024 · Team Member
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-3">
+          <!-- 2025 Lead -->
+          <div class="tab-pane fade show active" id="pane-dbf2025" role="tabpanel" aria-labelledby="tab-dbf2025">
+            <div class="row g-3">
+              <div class="col-md-7">
+                <div class="image-frame mb-3"><img src="assets/images/dbf2025_main.jpg" alt="DBF 2025"></div>
+              </div>
+              <div class="col-md-5">
+                <ul class="list-unstyled list-check">
+                  <li><i class="fas fa-check-circle"></i> Led multidisciplinary team; coordinated airframe, controls, and testing.</li>
+                  <li><i class="fas fa-check-circle"></i> Delivered folding-wing glider release mission; risk & schedule ownership.</li>
+                  <li><i class="fas fa-check-circle"></i> Managed procurement, flight safety briefings, and data logging.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                  <a class="btn btn-primary" href="assets/docs/dbf2025_presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-2"></i>Presentation (PDF)</a>
+                  <a class="btn btn-outline-light" href="assets/docs/dbf2025_report.pdf" target="_blank"><i class="fas fa-file-pdf me-2"></i>Report (PDF)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2024 Member -->
+          <div class="tab-pane fade" id="pane-dbf2024" role="tabpanel" aria-labelledby="tab-dbf2024">
+            <div class="row g-3">
+              <div class="col-md-7">
+                <div class="image-frame mb-3"><img src="assets/images/dbf2024_main.jpg" alt="DBF 2024"></div>
+              </div>
+              <div class="col-md-5">
+                <ul class="list-unstyled list-check">
+                  <li><i class="fas fa-check-circle"></i> Contributed to airframe assembly & weight optimization.</li>
+                  <li><i class="fas fa-check-circle"></i> Assisted with ground tests, telemetry checks, and mission planning.</li>
+                  <li><i class="fas fa-check-circle"></i> Supported documentation and design review preparation.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                  <a class="btn btn-primary" href="assets/docs/dbf2024_presentation.pdf" target="_blank"><i class="fas fa-file-powerpoint me-2"></i>Presentation (PDF)</a>
+                  <a class="btn btn-outline-light" href="assets/docs/dbf2024_report.pdf" target="_blank"><i class="fas fa-file-pdf me-2"></i>Report (PDF)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /tab-content -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =================== MODAL: CLUB POSITIONS =================== -->
+<div class="modal fade" id="modal-club" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Club Positions</h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="tabs-club" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-maac" data-bs-toggle="tab" data-bs-target="#pane-maac" type="button" role="tab">
+              MAAC (MIST Aeronautics & Astronautics Club)
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-aiaa" data-bs-toggle="tab" data-bs-target="#pane-aiaa" type="button" role="tab">
+              AIAA Student Branch
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-mistps" data-bs-toggle="tab" data-bs-target="#pane-mistps" type="button" role="tab">
+              MISTPS (Photographic Society)
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-3">
+
+          <!-- MAAC -->
+          <div class="tab-pane fade show active" id="pane-maac" role="tabpanel" aria-labelledby="tab-maac">
+            <div class="row g-3">
+              <div class="col-md-7">
+                <div class="image-frame mb-3"><img src="assets/images/maac_event.jpg" alt="MAAC"></div>
+              </div>
+              <div class="col-md-5">
+                <ul class="list-unstyled list-check">
+                  <li><i class="fas fa-check-circle"></i> President · 2024–2025 · 320+ members engaged.</li>
+                  <li><i class="fas fa-check-circle"></i> Organized UAV workshops, mentorship, and inter-university drone meet.</li>
+                  <li><i class="fas fa-check-circle"></i> Built collaboration with labs and industry mentors.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                  <a class="btn btn-primary" href="assets/docs/maac_program.pdf" target="_blank"><i class="fas fa-file-pdf me-2"></i>Program/Agenda (PDF)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AIAA Student Branch -->
+          <div class="tab-pane fade" id="pane-aiaa" role="tabpanel" aria-labelledby="tab-aiaa">
+            <div class="row g-3">
+              <div class="col-md-7">
+                <div class="image-frame mb-3"><img src="assets/images/aiaa_event.jpg" alt="AIAA Student Branch"></div>
+              </div>
+              <div class="col-md-5">
+                <ul class="list-unstyled list-check">
+                  <li><i class="fas fa-check-circle"></i> Core committee member; arranged technical talks & DBF prep.</li>
+                  <li><i class="fas fa-check-circle"></i> Coordinated with faculty advisors and external reviewers.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                  <a class="btn btn-primary" href="assets/docs/aiaa_activity.pdf" target="_blank"><i class="fas fa-file-pdf me-2"></i>Activity Summary (PDF)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MISTPS -->
+          <div class="tab-pane fade" id="pane-mistps" role="tabpanel" aria-labelledby="tab-mistps">
+            <div class="row g-3">
+              <div class="col-md-7">
+                <div class="image-frame mb-3"><img src="assets/images/mistps_event.jpg" alt="MISTPS"></div>
+              </div>
+              <div class="col-md-5">
+                <ul class="list-unstyled list-check">
+                  <li><i class="fas fa-check-circle"></i> Event documentation & media coordination for tech showcases.</li>
+                  <li><i class="fas fa-check-circle"></i> Promoted outreach videos/photos highlighting UAV initiatives.</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mt-3">
+                  <a class="btn btn-primary" href="assets/docs/mistps_portfolio.pdf" target="_blank"><i class="fas fa-file-pdf me-2"></i>Portfolio (PDF)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tab-content -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-light py-3 text-center"><small>© 2025 Kazi Tauhid Hussain</small></footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+
+  // Hash router: open the right modal & select the correct tab
+  document.addEventListener('DOMContentLoaded', () => {
+    const hash = (window.location.hash || '').toLowerCase();
+
+    // Helper to show modal and (optionally) activate a tab inside
+    function openModal(modalSelector, tabSelector) {
+      const modalEl = document.querySelector(modalSelector);
+      if (!modalEl) return;
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+
+      if (tabSelector) {
+        // Wait a tick to ensure modal DOM is ready, then activate tab
+        setTimeout(() => {
+          const tabBtn = document.querySelector(tabSelector);
+          if (tabBtn) new bootstrap.Tab(tabBtn).show();
+        }, 150);
+      }
+    }
+
+    switch (hash) {
+      // Category-level
+      case '#aircraft': openModal('#modal-aircraft'); break;
+      case '#club':     openModal('#modal-club');     break;
+
+      // Aircraft sub-tabs
+      case '#dbf2025':  openModal('#modal-aircraft', '#tab-dbf2025');  break;
+      case '#dbf2024':  openModal('#modal-aircraft', '#tab-dbf2024');  break;
+
+      // Club sub-tabs
+      case '#maac':     openModal('#modal-club', '#tab-maac');   break;
+      case '#aiaa':     openModal('#modal-club', '#tab-aiaa');   break;
+      case '#mistps':   openModal('#modal-club', '#tab-mistps'); break;
+    }
+  });
+</script>
+<script src="js/site.js"></script>
+</body>
+
+
+</html>

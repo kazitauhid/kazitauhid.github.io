@@ -1,180 +1,209 @@
-/* ====== 1) Global Reset & Typography ====== */
+/* =========================
+   1) Reset & Typography
+   ========================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #222; }
 
-/* ====== 2) Navigation ====== */
-.nav {
+html, body {
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #ddd;
+  background-color: #121212;
+  scroll-behavior: smooth; /* native smooth scroll for non-scripted jumps */
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* =========================
+   2) Navbar (Bootstrap .navbar)
+   ========================= */
+.navbar {
+  min-height: 64px;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Brand + links: consistent vertical alignment & sizing */
+.navbar-brand,
+.navbar-nav .nav-link {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-}
-.nav .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.nav-links {
-  list-style: none;
-  display: none;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.nav-links li a {
-  text-decoration: none;
-  color: #222;
-}
-.menu-toggle {
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+  line-height: 1.2;
 }
 
-/* ====== 3) Hero ====== */
-#hero {
-  text-align: center;
-  padding: 4rem 1rem;
-}
-#hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-#hero p  { font-size: 1.2rem; margin-bottom: 1.5rem; }
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #005f99;
-  color: white;
-  text-decoration: none;
-  border-radius: 0.25rem;
-  margin-right: 1rem;
-}
-.btn-outline {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #005f99;
-  color: #005f99;
-  text-decoration: none;
-  border-radius: 0.25rem;
+.navbar-brand { font-size: 1.25rem; font-weight: 600; }
+.navbar-nav .nav-link { font-size: 1rem; padding: 0.5rem 1rem; }
+
+/* Hover color */
+.navbar-dark .nav-link:hover { color: #0d6efd; }
+
+/* --- Animated active/hover aesthetic (zoom + underline + soft glow) --- */
+.navbar .nav-link {
+  position: relative;
+  color: #cfd6e6;
+  transition: color .18s ease, transform .18s ease, text-shadow .18s ease;
+  will-change: transform;
 }
 
-/* ====== 4) Responsive Breakpoint ====== */
-@media (min-width: 768px) {
-  .menu-toggle { display: none; }
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.navbar .nav-link.active {
+  color: #0d6efd !important;
+  font-weight: 600;
+  transform: scale(1.06);
+  text-shadow: 0 0 12px rgba(13,110,253,0.25);
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: .35rem;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7ab8ff, #0d6efd);
+  border-radius: 2px;
+  transition: all .22s ease;
+}
+
+.navbar .nav-link.active::after {
+  left: .75rem;
+  width: calc(100% - 1.5rem);
+}
+
+@keyframes navPulse {
+  0%   { transform: scale(1.00); text-shadow: 0 0 0 rgba(13,110,253,0.0); }
+  60%  { transform: scale(1.10); text-shadow: 0 0 16px rgba(13,110,253,0.35); }
+  100% { transform: scale(1.06); text-shadow: 0 0 12px rgba(13,110,253,0.25); }
+}
+.navbar .nav-link.just-activated { animation: navPulse .32s ease-out both; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .navbar .nav-link,
+  .navbar .nav-link::after { transition: none !important; }
+  .navbar .nav-link,
+  .navbar .nav-link.active,
+  .navbar .nav-link.just-activated {
+    transform: none !important;
+    text-shadow: none !important;
+    animation: none !important;
   }
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-.image-frame {
-  width: 250px;           /* or 100% / max-width:250px */
-  aspect-ratio: 1 / 1;    /* square frame */
-  overflow: hidden;
+
+/* NOTE: You had a custom `.nav { ... }` block (non-Bootstrap).
+   It can conflict with Bootstrap’s `.nav`. Remove/rename if you still need it. */
+
+/* =========================
+   3) Section Offsets & Layout
+   ========================= */
+/* Prevent fixed navbar from covering sections when scrolled into view */
+#home, #about, #research, #publications, #skills,
+#leadership-preview, #courses, #contact { scroll-margin-top: 80px; }
+
+/* Narrow specific sections on Home for elegance */
+#about .container,
+#publications .container,
+#leadership-preview .container,
+#skills .container,
+#courses .container { max-width: 1100px; }
+
+#about, #publications, #leadership-preview, #skills, #courses {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
 }
 
+@media (min-width: 1400px) {
+  #about .container,
+  #publications .container,
+  #leadership-preview .container,
+  #skills .container,
+  #courses .container { max-width: 1000px; }
+}
+
+/* Optional: control paragraph line length */
+.prose { max-width: 70ch; }
+
+/* =========================
+   4) Hero
+   ========================= */
+.hero-section {
+  background: url('../assets/images/hero-bg.jpg') center/cover no-repeat;
+  position: relative;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+.hero-section .container { position: relative; z-index: 1; }
+
+/* =========================
+   5) Cards & Images
+   ========================= */
+.card img { height: 200px; object-fit: cover; }
+
+/* Uniform image-frame (single definition) */
+.image-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: .5rem;
+}
 .image-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-/* TIMELINE */
-.timeline {
-  position: relative;
-  padding-left: 2rem;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 1rem;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #0d6efd; /* Bootstrap primary */
-}
-.timeline li {
-  position: relative;
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-}
-.timeline-year {
-  font-weight: 600;
-  color: #0d6efd;
-  display: block;
-}
-.timeline li::before {
-  content: '';
-  position: absolute;
-  left: 0.6rem;
-  top: 0.3rem;
-  width: 0.8rem;
-  height: 0.8rem;
-  background: #0d6efd;
-  border-radius: 50%;
-}
 
-/* HERO BUTTON OVERRIDE */
-header .btn-outline-light {
-  border-color: rgba(255, 255, 255, 0.8);
-  color: #fff;
-}
-header .btn-outline-light:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* IMAGE SHADOW */
-img.shadow-lg {
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-}
-/* Hero styling */
-.hero {
-  position: relative;
-  height: 100vh;
-  background: url('../assets/images/hero-bg.jpg') center/cover no-repeat;
-}
-.hero .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-}
-.hero .container {
-  z-index: 1;
-}
-
-/* Feature boxes hover effect */
+/* Feature box hover */
 .feature-box {
   border-radius: 0.5rem;
   background: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform .3s, box-shadow .3s;
 }
 .feature-box:hover {
   transform: translateY(-10px);
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
 }
 
-/* Image-frame for consistent cropping */
-.image-frame {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-.image-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
+/* Slightly lighter alt section bg */
+.bg-secondary { background-color: #1f1f1f !important; }
 
-/* Section headings */
-section h2 {
-  font-weight: 600;
-  margin-bottom: 2rem;
+/* =========================
+   6) Timeline (dark)
+   ========================= */
+.timeline { position: relative; padding-left: 1.5rem; }
+.timeline::before {
+  content: "";
+  position: absolute; left: 10px; top: 0; bottom: 0; width: 2px;
+  background: rgba(255,255,255,0.2);
 }
+.timeline-item { position: relative; margin: 1.5rem 0 1.5rem 0.5rem; }
+.timeline-dot {
+  position: absolute; left: 2px; top: 6px; width: 16px; height: 16px; border-radius: 50%;
+  background: #0d6efd; box-shadow: 0 0 0 3px rgba(13,110,253,0.25);
+}
+.timeline-content { margin-left: 2.5rem; }
 
-/* Footer icons */
-footer a:hover {
-  color: #0d6efd !important;
+/* =========================
+   8) Footer
+   ========================= */
+footer a:hover { color: #0d6efd !important; }
+/* Restore Bootstrap colors for primary buttons */
+
+
+.btn.btn-primary {
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background-color: #0b5ed7 !important;
+  border-color: #0a58ca !important;
 }

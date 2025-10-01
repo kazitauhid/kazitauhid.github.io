@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Kazi Tauhid Hussain</title>
+
+<!-- Google Font (same as home) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<!-- Font Awesome (icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<!-- Bootstrap 5 (same version everywhere) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Your global styles -->
+<link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* subtle polish */
+    body { background:#121212; color:#ddd; }
+    .page-hero { color:#fff; }
+    .image-frame { width:100%; aspect-ratio:16/9; overflow:hidden; }
+    .image-frame img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .card.bg-dark { border:1px solid rgba(255,255,255,0.08); }
+    .modal-content { background:#1b1b1b; color:#ddd; border:1px solid rgba(255,255,255,0.07); }
+    .list-check li { margin-bottom:.4rem; }
+    .list-check li i { color:#0d6efd; margin-right:.5rem; }
+  </style>
+</head>
+<body data-current="projects">
+<link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Navigation Bar --> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html#home">Kazi Tauhid Hussain</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navFull">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navFull">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" data-section="home" href="index.html#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="about" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="projects" href="index.html#research">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="publications" href="index.html#publications">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="skills" href="index.html#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="leadership" href="index.html#leadership-preview">Leadership</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="courses" href="index.html#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="documents"   href="documents.html">Documents</a></li>
+        <li class="nav-item"><a class="nav-link" data-section="contact" href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<header class="page-hero py-5 text-center mt-5" style="background:linear-gradient(180deg, #0f0f0f, #121212);">
+  <div class="container">
+    <h1 class="fw-bold" data-aos="fade-up">Projects</h1>
+    <p class="text-muted" data-aos="fade-up" data-aos-delay="100">Click a card or title to view details, images, and PDFs.</p>
+  </div>
+</header>
+
+<main class="container py-5">
+  <div class="row g-4 justify-content-center align-items-stretch">
+
+    <!-- Swarm Drone Architecture -->
+    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in">
+      <div class="card bg-dark text-light h-100 shadow-sm">
+        <div class="image-frame">
+          <img src="assets/images/project1.jpg" alt="Swarm Drone Architecture">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="#swarm" class="stretched-link text-decoration-none link-light"
+               data-bs-toggle="modal" data-bs-target="#modal-swarm">Swarm Drone Architecture</a>
+          </h5>
+          <p class="card-text text-muted">Leader–follower network, airborne Wi-Fi hub, onboard vision.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fixed-Wing VTOL UAV -->
+    <div class="col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+      <div class="card bg-dark text-light h-100 shadow-sm">
+        <div class="image-frame">
+          <img src="assets/images/project2.jpg" alt="Fixed-Wing VTOL UAV">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="#vtol" class="stretched-link text-decoration-none link-light"
+               data-bs-toggle="modal" data-bs-target="#modal-vtol">Fixed-Wing VTOL UAV</a>
+          </h5>
+          <p class="card-text text-muted">IC-engine hybrid; endurance & terrain surveillance.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</main>
+
+<!-- ================== MODALS ================== -->
+
+<!-- Swarm Modal -->
+<div class="modal fade" id="modal-swarm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Swarm Drone Architecture</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Gallery (simple) -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-8">
+            <div class="image-frame">
+              <img src="assets/images/swarm_main.jpg" alt="Swarm main">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="image-frame mb-3"><img src="assets/images/swarm_2.jpg" alt="Swarm view 2"></div>
+            <div class="image-frame"><img src="assets/images/swarm_3.jpg" alt="Swarm view 3"></div>
+          </div>
+        </div>
+
+        <!-- Bullet summary -->
+        <ul class="list-unstyled list-check">
+          <li><i class="fas fa-check-circle"></i> Leader–follower formation with airborne Wi-Fi hub (MikroTik/Ubiquiti).</li>
+          <li><i class="fas fa-check-circle"></i> Onboard vision (YOLOv8) for person detection; ENU transforms.</li>
+          <li><i class="fas fa-check-circle"></i> MAVLink + custom socket telemetry; heading map visualization.</li>
+          <li><i class="fas fa-check-circle"></i> Energy model using bench-measured avionics load.</li>
+        </ul>
+
+        <!-- PDF buttons -->
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a class="btn btn-primary" href="assets/docs/swarm_presentation.pdf" target="_blank">
+            <i class="fas fa-file-powerpoint me-2"></i> Presentation (PDF)
+          </a>
+          <a class="btn btn-outline-light" href="assets/docs/swarm_paper.pdf" target="_blank">
+            <i class="fas fa-file-pdf me-2"></i> Paper (PDF)
+          </a>
+          <a class="btn btn-outline-secondary" href="index.html#research">
+            <i class="fas fa-arrow-left me-2"></i> Back to overview
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VTOL Modal -->
+<div class="modal fade" id="modal-vtol" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Fixed-Wing VTOL UAV</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-8">
+            <div class="image-frame">
+              <img src="assets/images/vtol_main.jpg" alt="VTOL main">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="image-frame mb-3"><img src="assets/images/vtol_2.jpg" alt="VTOL view 2"></div>
+            <div class="image-frame"><img src="assets/images/vtol_3.jpg" alt="VTOL view 3"></div>
+          </div>
+        </div>
+
+        <ul class="list-unstyled list-check">
+          <li><i class="fas fa-check-circle"></i> IC-engine hybrid; 25–28 min endurance target.</li>
+          <li><i class="fas fa-check-circle"></i> Pixhawk 4 + Raspberry Pi 5 avionics; PID + energy-aware control.</li>
+          <li><i class="fas fa-check-circle"></i> Mission energy model; wind drag (quadratic) integration.</li>
+        </ul>
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a class="btn btn-primary" href="assets/docs/vtol_presentation.pdf" target="_blank">
+            <i class="fas fa-file-powerpoint me-2"></i> Presentation (PDF)
+          </a>
+          <a class="btn btn-outline-light" href="assets/docs/vtol_paper.pdf" target="_blank">
+            <i class="fas fa-file-pdf me-2"></i> Paper (PDF)
+          </a>
+          <a class="btn btn-outline-secondary" href="index.html#research">
+            <i class="fas fa-arrow-left me-2"></i> Back to overview
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FT-IR Modal -->
+<div class="modal fade" id="modal-ftir" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">FT-IR Microplastics Identification</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-8">
+            <div class="image-frame">
+              <img src="assets/images/ftir_main.jpg" alt="FT-IR main">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="image-frame mb-3"><img src="assets/images/ftir_2.jpg" alt="FT-IR view 2"></div>
+            <div class="image-frame"><img src="assets/images/ftir_3.jpg" alt="FT-IR view 3"></div>
+          </div>
+        </div>
+
+        <ul class="list-unstyled list-check">
+          <li><i class="fas fa-check-circle"></i> PVC, PET, PE, PP, PS identification from air samples.</li>
+          <li><i class="fas fa-check-circle"></i> Peak detection & reference spectrum matching.</li>
+          <li><i class="fas fa-check-circle"></i> Plot overlays with confidence scoring.</li>
+        </ul>
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <a class="btn btn-primary" href="assets/docs/ftir_presentation.pdf" target="_blank">
+            <i class="fas fa-file-powerpoint me-2"></i> Presentation (PDF)
+          </a>
+          <a class="btn btn-outline-light" href="assets/docs/ftir_paper.pdf" target="_blank">
+            <i class="fas fa-file-pdf me-2"></i> Paper (PDF)
+          </a>
+          <a class="btn btn-outline-secondary" href="index.html#research">
+            <i class="fas fa-arrow-left me-2"></i> Back to overview
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-light py-3 text-center">
+  <small>© 2025 Kazi Tauhid Hussain</small>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+
+  // Open the right modal automatically when coming from index links like projects.html#swarm
+  document.addEventListener('DOMContentLoaded', function () {
+    const hash = (window.location.hash || '').toLowerCase();
+    const map = {
+      '#swarm': '#modal-swarm',
+      '#vtol':  '#modal-vtol',
+      '#ftir':  '#modal-ftir'
+    };
+    if (map[hash]) {
+      const modalEl = document.querySelector(map[hash]);
+      if (modalEl) {
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+      }
+    }
+  });
+</script>
+<script src="js/site.js"></script>
+</body>
+
+
+</html>
