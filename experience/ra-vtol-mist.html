@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Assistant — MIST | Kazi Tauhid Mokbul Hussain</title>
+  <meta name="description" content="Research Assistant role at MIST Department of Aeronautical Engineering — R&D and prototyping of a fixed-wing VTOL UAV across 4 prototype generations." />
+  <meta property="og:title" content="Research Assistant — MIST | Kazi Tauhid Mokbul Hussain" />
+  <meta property="og:description" content="Research Assistant at MIST Aeronautical Engineering — led R&D and prototyping of a piston-engine fixed-wing VTOL UAV across 4 generations for hill-terrain surveillance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kazitauhid.github.io/experience/ra-vtol-mist.html" />
+  <meta property="og:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Research Assistant — MIST | Kazi Tauhid Mokbul Hussain" />
+  <meta name="twitter:description" content="Research Assistant at MIST Aeronautical Engineering — led R&D and prototyping of a piston-engine fixed-wing VTOL UAV across 4 generations for hill-terrain surveillance." />
+  <meta name="twitter:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    main { max-width: 1100px; margin: 0 auto; padding: 6rem 2.5rem 4rem; position: relative; z-index: 1; }
+
+    /* HERO */
+    .exp-hero { border-bottom: 1px solid var(--border); padding-bottom: 3rem; margin-bottom: 3.5rem; }
+    .exp-hero-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+    .exp-badge {
+      font-family: var(--ff-mono); font-size: 0.62rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.3rem 0.75rem; border-radius: 3px;
+      background: rgba(59,130,246,0.1); color: var(--accent2);
+      border: 1px solid rgba(59,130,246,0.25);
+    }
+    .exp-badge.govt { background: rgba(245,158,11,0.1); color: var(--gold); border-color: rgba(245,158,11,0.3); }
+    .exp-period-badge {
+      font-family: var(--ff-mono); font-size: 0.72rem;
+      color: var(--accent); letter-spacing: 0.06em;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border2); border-radius: 4px;
+    }
+    .exp-title { font-family: var(--ff-display); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+    .exp-org { font-size: 1.05rem; color: var(--text2); margin-bottom: 1.5rem; line-height: 1.6; }
+    .exp-org span { color: var(--accent3); font-weight: 500; }
+    .exp-tagline { font-size: 0.95rem; color: var(--text2); line-height: 1.8; max-width: 820px; }
+    .exp-quick-stats { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .exp-stat .label { font-family: var(--ff-mono); font-size: 0.6rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .exp-stat .value { font-family: var(--ff-display); font-size: 1rem; font-weight: 700; color: var(--text); }
+    .exp-stat .value.hl { color: var(--accent2); }
+
+    /* SECTIONS */
+    .exp-section { margin-bottom: 4rem; scroll-margin-top: 100px; }
+    .exp-section-label { font-family: var(--ff-mono); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .exp-section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .exp-section-title { font-family: var(--ff-display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
+    .prose p { color: var(--text2); line-height: 1.85; margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .prose strong { color: var(--text); }
+    .prose a { color: var(--accent2); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .prose a:hover { border-color: var(--accent2); }
+
+    /* TABS */
+    .contrib-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .ctab {
+      font-family: var(--ff-mono); font-size: 0.7rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.55rem 1.2rem; border-radius: 4px;
+      border: 1px solid var(--border2);
+      color: var(--text3); background: transparent;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .ctab:hover { border-color: var(--accent2); color: var(--accent2); }
+    .ctab.active { background: var(--accent); border-color: var(--accent); color: white; }
+    .contrib-panel { display: none; }
+    .contrib-panel.active { display: block; }
+    .contrib-list { display: flex; flex-direction: column; gap: 1rem; }
+    .contrib-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius2); padding: 1.25rem 1.5rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .contrib-item:hover { border-color: var(--border2); transform: translateX(4px); }
+    .contrib-icon {
+      font-size: 1.25rem; flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: rgba(59,130,246,0.08);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contrib-title { font-family: var(--ff-display); font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+    .contrib-desc { font-size: 0.82rem; color: var(--text2); line-height: 1.7; }
+
+    /* PROTOTYPE TIMELINE */
+    .proto-timeline { display: flex; flex-direction: column; gap: 0; }
+    .proto-item { display: grid; grid-template-columns: 60px 1fr; gap: 0; position: relative; }
+    .proto-item:not(:last-child) .proto-connector::after {
+      content: ''; position: absolute; top: 52px; left: 29px;
+      width: 2px; height: calc(100% - 20px);
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+    }
+    .proto-connector { display: flex; flex-direction: column; align-items: center; padding-top: 12px; position: relative; }
+    .proto-dot {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-mono); font-size: 0.6rem;
+      color: var(--accent); font-weight: 700;
+      flex-shrink: 0; z-index: 1;
+    }
+    .proto-dot.current { background: var(--accent); color: white; box-shadow: 0 0 16px rgba(59,130,246,0.5); }
+    .proto-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 1.5rem; margin: 0 0 1.5rem 1rem; transition: border-color 0.25s, transform 0.25s; }
+    .proto-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .proto-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .proto-name { font-family: var(--ff-display); font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .proto-tag {
+      font-family: var(--ff-mono); font-size: 0.62rem;
+      color: var(--accent); letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem; border: 1px solid var(--border); border-radius: 3px;
+    }
+    .proto-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.75; margin-bottom: 1rem; }
+    .proto-specs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .proto-spec {
+      font-family: var(--ff-mono); font-size: 0.62rem;
+      letter-spacing: 0.05em; padding: 0.2rem 0.6rem;
+      background: rgba(99,179,237,0.06); border: 1px solid var(--border);
+      border-radius: 3px; color: var(--text3);
+    }
+
+    /* BOTTOM NAV */
+    .exp-bottom-nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+    .nav-btn {
+      font-family: var(--ff-mono); font-size: 0.72rem;
+      letter-spacing: 0.06em; padding: 0.65rem 1.4rem;
+      border: 1px solid var(--border2); border-radius: 4px;
+      color: var(--text2); transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    @media (max-width: 768px) {
+      main { padding: 5rem 1.25rem 2.5rem; }
+      .exp-quick-stats { gap: 1.5rem; }
+      .proto-item { grid-template-columns: 40px 1fr; }
+      .proto-card { margin-left: 0.5rem; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9V6JMSJDV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H9V6JMSJDV');
+  </script>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="starfield"></canvas>
+
+  <nav id="navbar">
+    <a href="../index.html#hero" class="nav-logo">Kazi T. M. Hussain</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close">✕</button>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#publications">Publications</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <main>
+
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="../index.html#experience">Experience</a>
+      <span class="sep">/</span>
+      <span class="current">Research Assistant — MIST</span>
+    </nav>
+
+    <!-- HERO -->
+    <div class="exp-hero">
+      <div class="exp-hero-top">
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="exp-badge">Research Assistant</span>
+          <span class="exp-badge govt">🏛 Defence-Sector Programme</span>
+        </div>
+        <span class="exp-period-badge">JUNE 2025 — NOVEMBER 2025</span>
+      </div>
+
+      <h1 class="exp-title">Research Assistant — Aeronautical Engineering</h1>
+      <div class="exp-org">
+        <span>Department of Aeronautical Engineering</span> · Military Institute of Science and Technology (MIST) · Dhaka, Bangladesh
+      </div>
+      <p class="exp-tagline">
+        Six-month appointment as Research Assistant at MIST, contributing across three concurrent 
+        tracks: technical R&amp;D and prototyping of a <strong>fixed-wing VTOL UAV</strong> across 
+        four prototype generations, undergraduate teaching in Engineering Sessional Classes, and 
+        accreditation administration for the Aeronautical Engineering programme under the Washington Accord.
+      </p>
+
+      <div class="exp-quick-stats">
+        <div class="exp-stat">
+          <div class="label">Programme</div>
+          <div class="value">Fixed-Wing VTOL UAV</div>
+        </div>
+        <div class="exp-stat">
+          <div class="label">Mission</div>
+          <div class="value">Hill-Terrain Surveillance</div>
+        </div>
+        <div class="exp-stat">
+          <div class="label">Prototypes</div>
+          <div class="value hl">4 generations</div>
+        </div>
+        <div class="exp-stat">
+          <div class="label">Propulsion</div>
+          <div class="value">Piston Engine</div>
+        </div>
+        <div class="exp-stat">
+          <div class="label">Role Type</div>
+          <div class="value">R&amp;D + Teaching + Admin</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED PROJECT BANNER -->
+    <a href="../projects/vtol-uav.html" class="xlink-banner">
+      <div>
+        <div class="xlink-label">🔗 Related Project</div>
+        <div class="xlink-title">Fixed-Wing VTOL UAV — Full Engineering Case Study</div>
+        <div class="xlink-desc">
+          See the technical deep-dive: all 4 prototype generations, design evolution, 
+          aerodynamic analysis, and flight test outcomes.
+        </div>
+      </div>
+      <div class="xlink-arrow">View Project Case Study →</div>
+    </a>
+
+    <!-- 01 · CONTRIBUTIONS -->
+    <section class="exp-section">
+      <div class="exp-section-label">01 · Contributions</div>
+      <h2 class="exp-section-title">What I Did Here</h2>
+      <p class="prose" style="margin-bottom:1.5rem;">
+        My responsibilities spanned three tracks — hands-on engineering work on the VTOL UAV programme, 
+        teaching and mentorship of undergraduate students, and administrative work for academic accreditation.
+      </p>
+
+      <div class="contrib-tabs">
+        <button class="ctab active" onclick="switchTab('technical')">⚙️ Technical R&amp;D</button>
+        <button class="ctab" onclick="switchTab('mentorship')">🎓 Teaching &amp; Mentorship</button>
+        <button class="ctab" onclick="switchTab('admin')">📋 Accreditation Support</button>
+      </div>
+
+      <!-- TECHNICAL -->
+      <div class="contrib-panel active" id="tab-technical">
+        <div class="contrib-list">
+          <div class="contrib-item">
+            <div class="contrib-icon">✈️</div>
+            <div>
+              <div class="contrib-title">Fixed-Wing VTOL Airframe Design</div>
+              <div class="contrib-desc">
+                Contributed to airframe design across four prototype generations — wing geometry, 
+                fuselage layout, transition-mode aerodynamics, and structural integration. 
+                Used SolidWorks for CAD modelling and XFLR5 for aerodynamic analysis.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">🔧</div>
+            <div>
+              <div class="contrib-title">Piston-Engine Propulsion Integration</div>
+              <div class="contrib-desc">
+                Worked on the integration of a piston-engine propulsion system — a non-standard 
+                choice for VTOL UAVs requiring careful management of vibration, fuel system 
+                routing, weight distribution, and engine-mount design.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">🛫</div>
+            <div>
+              <div class="contrib-title">Prototype Build &amp; Flight Testing</div>
+              <div class="contrib-desc">
+                Hands-on fabrication, assembly, and flight testing of all four prototype
+                generations. Collected flight data and fed lessons learned into the next
+                design iteration. See the <a href="../projects/vtol-uav.html" style="color:var(--accent2)">VTOL project case study →</a> for prototype-by-prototype photos and detail.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">📐</div>
+            <div>
+              <div class="contrib-title">Hill-Terrain Mission Profile Engineering</div>
+              <div class="contrib-desc">
+                The platform was designed specifically for surveillance over hill terrain, 
+                requiring careful trade-offs in endurance, payload, and operational ceiling. 
+                Contributed to the mission-profile analysis and operational requirements definition.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENTORSHIP -->
+      <div class="contrib-panel" id="tab-mentorship">
+        <div class="contrib-list">
+          <div class="contrib-item">
+            <div class="contrib-icon">🎓</div>
+            <div>
+              <div class="contrib-title">Engineering Sessional Class Instruction</div>
+              <div class="contrib-desc">
+                Delivered laboratory instructions to undergraduate Aeronautical Engineering 
+                students in Engineering Sessional Classes — covering hands-on work in design, 
+                simulation, and aircraft-systems experiments.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item" id="mentorship">
+            <div class="contrib-icon">🧪</div>
+            <div>
+              <div class="contrib-title">Assisted — Two Undergraduate Thesis Projects</div>
+              <div class="contrib-desc">
+                Assisted two undergraduate teams working on drone research projects, providing
+                guidance on system design, hardware integration, and academic writing:
+                <br/><br/>
+                · <em>Real-Time Inter-Drone Collision Mitigation for UAV Swarm Architecture</em> — extending the swarm safety envelope from my own thesis work.<br/>
+                · <em>Sensor Data Fusion and Human Tracking in Swarm-Based Surveillance</em> — expanding the perception stack of the swarm platform.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">🤝</div>
+            <div>
+              <div class="contrib-title">Knowledge Transfer — Drone Research &amp; Tooling</div>
+              <div class="contrib-desc">
+                Onboarded junior researchers on drone design and development — transferring
+                knowledge of aeronautical design tools, UAV build procedures, avionics
+                integration, and field-test protocols across both fixed-wing and multi-rotor
+                platforms.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCREDITATION SUPPORT -->
+      <div class="contrib-panel" id="tab-admin">
+        <div class="contrib-list">
+          <div class="contrib-item">
+            <div class="contrib-icon">📜</div>
+            <div>
+              <div class="contrib-title">Washington Accord Accreditation Documentation</div>
+              <div class="contrib-desc">
+                Contributed to the preparation of administrative documents required for the 
+                Washington Accord accreditation of the MIST Aeronautical Engineering programme. 
+                The Washington Accord is an international agreement among engineering education 
+                accreditation bodies that recognises the substantial equivalence of engineering 
+                degrees.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">🏛</div>
+            <div>
+              <div class="contrib-title">BAETE Submission Preparation</div>
+              <div class="contrib-desc">
+                Prepared submission documents for the Board of Accreditation for Engineering 
+                and Technical Education (BAETE) — the national accreditation body responsible 
+                for evaluating engineering programmes in Bangladesh.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">📊</div>
+            <div>
+              <div class="contrib-title">Programme Outcomes &amp; Curriculum Mapping</div>
+              <div class="contrib-desc">
+                Assisted in mapping programme learning outcomes against accreditation criteria, 
+                preparing curriculum documentation, and compiling supporting evidence required 
+                by the accreditation review process.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · PROTOTYPE OVERVIEW -->
+    <section class="exp-section">
+      <div class="exp-section-label">02 · Programme Evolution</div>
+      <h2 class="exp-section-title">Four VTOL Prototype Generations</h2>
+      <a href="../projects/vtol-uav.html" class="xlink-banner" style="margin-bottom:1.5rem;">
+        <div>
+          <div class="xlink-label">🔗 Related Project</div>
+          <div class="xlink-title">Fixed-Wing VTOL UAV — Full Engineering Case Study</div>
+          <div class="xlink-desc">Prototype-by-prototype photos, aerodynamic analysis, and flight test outcomes from all four build generations.</div>
+        </div>
+        <div class="xlink-arrow">View Case Study →</div>
+      </a>
+      <div class="prose">
+        <p>
+          The programme followed an iterative R&amp;D approach — each prototype building on lessons
+          from the previous generation. A condensed overview is below; the full engineering detail
+          lives in the case study linked above.
+        </p>
+      </div>
+
+      <div class="proto-timeline" style="margin-top:2rem;">
+
+        <div class="proto-item">
+          <div class="proto-connector"><div class="proto-dot">P1</div></div>
+          <div class="proto-card">
+            <div class="proto-header">
+              <div class="proto-name">Prototype 1 — Concept Validation</div>
+              <span class="proto-tag">JUNE 2025</span>
+            </div>
+            <div class="proto-desc">
+              The first proof-of-concept build, focused on validating the basic VTOL 
+              transition concept and piston-engine integration approach.
+            </div>
+            <div class="proto-specs">
+              <span class="proto-spec">Concept Validation</span>
+              <span class="proto-spec">Piston Engine</span>
+              <span class="proto-spec">Transition Mode</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proto-item">
+          <div class="proto-connector"><div class="proto-dot">P2</div></div>
+          <div class="proto-card">
+            <div class="proto-header">
+              <div class="proto-name">Prototype 2 — Refinement &amp; Stability</div>
+              <span class="proto-tag">JULY – AUG 2025</span>
+            </div>
+            <div class="proto-desc">
+              Addressed control and stability issues identified in P1. Refined airframe 
+              geometry and improved transition handling.
+            </div>
+            <div class="proto-specs">
+              <span class="proto-spec">Improved Stability</span>
+              <span class="proto-spec">Refined Airframe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proto-item">
+          <div class="proto-connector"><div class="proto-dot">P3</div></div>
+          <div class="proto-card">
+            <div class="proto-header">
+              <div class="proto-name">Prototype 3 — Mission-Capable Build</div>
+              <span class="proto-tag">SEP – OCT 2025</span>
+            </div>
+            <div class="proto-desc">
+              Mid-programme upgrade integrating mission-relevant payload capacity and 
+              hill-terrain operational requirements.
+            </div>
+            <div class="proto-specs">
+              <span class="proto-spec">Mission Payload</span>
+              <span class="proto-spec">Hill-Terrain Profile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proto-item">
+          <div class="proto-connector"><div class="proto-dot current">P4</div></div>
+          <div class="proto-card" style="border-color:rgba(59,130,246,0.3);">
+            <div class="proto-header">
+              <div class="proto-name">Prototype 4 — Final Deliverable</div>
+              <span class="proto-tag">NOV 2025</span>
+            </div>
+            <div class="proto-desc">
+              Final platform meeting all programme specifications. Demonstrated full 
+              hill-terrain surveillance capability with the integrated piston-engine 
+              VTOL configuration.
+            </div>
+            <div class="proto-specs">
+              <span class="proto-spec">Final Platform</span>
+              <span class="proto-spec">Mission-Ready</span>
+              <span class="proto-spec">Full Spec Compliance</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03 · KEY OUTCOMES -->
+    <section class="exp-section">
+      <div class="exp-section-label">03 · Outcomes</div>
+      <h2 class="exp-section-title">What This Role Delivered</h2>
+      <div class="prose">
+        <p>
+          By the end of the appointment, the programme had successfully delivered four 
+          progressive prototype generations, with the final platform validating the 
+          piston-engine VTOL approach for hill-terrain surveillance missions.
+        </p>
+        <p>
+          On the academic side, two co-supervised undergraduate theses were completed — 
+          both extending my own thesis work on swarm UAV systems — and the Aeronautical 
+          Engineering programme advanced its accreditation submission to BAETE.
+        </p>
+        <p>
+          This experience consolidated my hands-on aircraft design and prototyping skills 
+          while exposing me to the academic-administration side of running a research-active 
+          engineering department — an unusually broad scope for a six-month role.
+        </p>
+      </div>
+    </section>
+
+    <!-- BOTTOM NAV -->
+    <div class="exp-bottom-nav">
+      <a href="../index.html#experience" class="nav-btn">← Back to Experience</a>
+      <a href="../projects/vtol-uav.html" class="nav-btn">VTOL Project Case Study →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">© 2026 <span>Kazi Tauhid Mokbul Hussain</span></div>
+    <div class="footer-text"><a href="../index.html">← Back to home</a></div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

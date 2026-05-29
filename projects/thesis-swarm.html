@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master–Slave Drone Swarm Thesis — Kazi Tauhid Mokbul Hussain</title>
+  <meta name="description" content="Undergraduate thesis: master–slave drone swarm architecture with onboard AI vision, Wi-Fi networking, and formation control. MIST R&D grant funded." />
+  <meta property="og:title" content="Master–Slave Drone Swarm Thesis — Kazi Tauhid Mokbul Hussain" />
+  <meta property="og:description" content="Undergraduate thesis: ground-station-free multi-UAV formation with an airborne Wi-Fi hub, distributed avionics, and onboard AI vision. BDT 468,000 R&D grant funded." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kazitauhid.github.io/projects/thesis-swarm.html" />
+  <meta property="og:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Master–Slave Drone Swarm Thesis — Kazi Tauhid Mokbul Hussain" />
+  <meta name="twitter:description" content="Undergraduate thesis: ground-station-free multi-UAV formation with an airborne Wi-Fi hub, distributed avionics, and onboard AI vision. BDT 468,000 R&D grant funded." />
+  <meta name="twitter:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    main { max-width: 1100px; margin: 0 auto; padding: 6rem 2.5rem 4rem; position: relative; z-index: 1; }
+
+    .pp-hero { padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+    .pp-meta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .pp-status, .pp-funded, .pp-tag {
+      display: inline-block; font-family: var(--ff-mono); font-size: 0.62rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 3px;
+    }
+    .pp-status { background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.25); }
+    .pp-funded { background: rgba(34,211,238,0.1); color: var(--cyan2); border: 1px solid rgba(34,211,238,0.25); }
+    .pp-tag { background: rgba(99,179,237,0.06); color: var(--text3); border: 1px solid var(--border2); }
+    .pp-title { font-family: var(--ff-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .pp-tagline { font-size: 1.05rem; color: var(--text2); line-height: 1.7; max-width: 800px; }
+    .pp-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .pp-info-item .label { font-family: var(--ff-mono); font-size: 0.6rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .pp-info-item .value { font-family: var(--ff-display); font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .pp-info-item .value.accent { color: var(--accent2); }
+    .pp-info-item .value.gold { color: var(--gold); }
+
+    .pp-section { margin-bottom: 4rem; }
+    .pp-section-label { font-family: var(--ff-mono); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .pp-section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .pp-section-title { font-family: var(--ff-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
+    .pp-prose p { color: var(--text2); line-height: 1.85; margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .pp-prose strong { color: var(--text); }
+    .pp-prose a { color: var(--accent2); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .pp-prose a:hover { border-color: var(--accent2); }
+    .pp-prose ul { margin: 1rem 0 1.5rem 1.5rem; color: var(--text2); }
+    .pp-prose ul li { margin-bottom: 0.6rem; line-height: 1.7; font-size: 0.95rem; }
+
+    /* ARCHITECTURE DIAGRAM CALLOUT */
+    .arch-callout {
+      background: linear-gradient(135deg, rgba(99,179,237,0.04), rgba(34,211,238,0.02));
+      border: 1px solid var(--border2); border-radius: var(--radius2);
+      padding: 2rem; margin: 1.5rem 0;
+    }
+    .arch-grid {
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+      align-items: center; max-width: 700px; margin: 0 auto;
+    }
+    .arch-node {
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 1.25rem;
+      text-align: center;
+    }
+    .arch-node.master { border-color: var(--gold); box-shadow: 0 0 20px rgba(245,158,11,0.15); }
+    .arch-node-label { font-family: var(--ff-mono); font-size: 0.62rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .arch-node.master .arch-node-label { color: var(--gold); }
+    .arch-node-title { font-family: var(--ff-display); font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .arch-node-desc { font-size: 0.72rem; color: var(--text3); line-height: 1.5; }
+    .arch-link {
+      display: flex; flex-direction: column; align-items: center;
+      color: var(--accent2); font-family: var(--ff-mono);
+      font-size: 0.6rem; letter-spacing: 0.1em;
+    }
+    .arch-link svg { width: 60px; opacity: 0.6; margin-bottom: 0.3rem; }
+    .arch-slaves { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .arch-slave {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 0.75rem;
+      text-align: center; font-family: var(--ff-mono);
+      font-size: 0.7rem; color: var(--text2);
+    }
+
+    /* GALLERY & DUMP */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+    .gallery.large { grid-template-columns: 1fr; }
+    .gallery.split { grid-template-columns: repeat(2, 1fr); }
+    .photo-dump { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+
+    /* RESULTS */
+    .pp-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
+    .pp-metric { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 1.5rem; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+    .pp-metric:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--glow); }
+    .pp-metric-value { font-family: var(--ff-display); font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent2), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; letter-spacing: -0.02em; }
+    .pp-metric-label { font-family: var(--ff-mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.6rem; }
+
+    /* RELATED PUBLICATIONS */
+    .related-pubs { display: flex; flex-direction: column; gap: 0.75rem; }
+    .rel-pub {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius2); padding: 1.25rem 1.5rem;
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; gap: 1.25rem;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .rel-pub:hover { border-color: var(--accent); transform: translateX(4px); }
+    .rel-pub-year { font-family: var(--ff-mono); font-size: 0.68rem; color: var(--accent); white-space: nowrap; }
+    .rel-pub-title { font-family: var(--ff-display); font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; line-height: 1.4; }
+    .rel-pub-venue { font-size: 0.78rem; color: var(--text3); font-style: italic; }
+    .rel-pub-link {
+      font-family: var(--ff-mono); font-size: 0.68rem;
+      color: var(--accent2); white-space: nowrap;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: color 0.2s;
+    }
+    .rel-pub-link:hover { color: var(--cyan); }
+
+    /* TECH STACK */
+    .pp-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pp-stack-pill { font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.05em; padding: 0.4rem 0.9rem; background: rgba(99,179,237,0.06); border: 1px solid var(--border); border-radius: 4px; color: var(--text2); }
+
+    /* NAV */
+    .pp-nav-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+    .pp-nav-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 1.5rem; transition: border-color 0.25s, transform 0.25s; }
+    .pp-nav-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .pp-nav-card.next { text-align: right; }
+    .pp-nav-card .label { font-family: var(--ff-mono); font-size: 0.62rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .pp-nav-card .title { font-family: var(--ff-display); font-size: 1rem; font-weight: 700; color: var(--text); }
+
+    @media (max-width: 768px) {
+      main { padding: 5rem 1.25rem 2.5rem; }
+      .gallery.split { grid-template-columns: 1fr; }
+      .photo-dump { grid-template-columns: repeat(2, 1fr); }
+      .pp-nav-projects { grid-template-columns: 1fr; }
+      .pp-nav-card.next { text-align: left; }
+      .arch-grid { grid-template-columns: 1fr; }
+      .arch-link { transform: rotate(90deg); }
+      .rel-pub { grid-template-columns: 1fr; gap: 0.5rem; }
+      .rel-pub-year { display: none; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9V6JMSJDV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H9V6JMSJDV');
+  </script>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="starfield"></canvas>
+
+  <nav id="navbar">
+    <a href="../index.html#hero" class="nav-logo">Kazi T. M. Hussain</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close">✕</button>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#publications">Publications</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <main>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="../index.html#research">Research</a>
+      <span class="sep">/</span>
+      <span class="current">Master–Slave Drone Swarm (Thesis)</span>
+    </nav>
+
+    <!-- HERO -->
+    <div class="pp-hero">
+      <div class="pp-meta-row">
+        <span class="pp-status">📄 Published · Undergrad Thesis</span>
+        <span class="pp-funded">⭐ MIST R&amp;D Grant — BDT 468,000</span>
+        <span class="pp-tag">2024 – 2025</span>
+      </div>
+      <h1 class="pp-title">Multi-Copter Drone-Based Aerial Network for Autonomous Operation, Dynamic Target Detection &amp; Analysis</h1>
+      <p class="pp-tagline">
+        A grant-funded undergraduate thesis: a <strong>master–slave drone swarm</strong> with 
+        an airborne Wi-Fi hub, distributed avionics, formation control, and onboard AI vision 
+        running on Raspberry Pi. Achieved <strong>sub-meter formation accuracy</strong> and 
+        <strong>25+ minutes of autonomous endurance</strong> — and produced three peer-reviewed 
+        conference papers.
+      </p>
+      <div class="pp-info-grid">
+        <div class="pp-info-item">
+          <div class="label">My Role</div>
+          <div class="value accent">Lead Author &amp; Thesis Student</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Supervisor</div>
+          <div class="value">Dr. Mohammad Akhter Jamil</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Institution</div>
+          <div class="value">MIST · Aeronautical Eng.</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Funding</div>
+          <div class="value gold">BDT 468,000</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Publications</div>
+          <div class="value accent">3 conference papers</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Endurance</div>
+          <div class="value">25+ min autonomous</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED EDUCATION BANNER -->
+    <a href="../index.html#about" class="xlink-banner gold">
+      <div>
+        <div class="xlink-label">🔗 Related Education</div>
+        <div class="xlink-title">B.Sc. Aeronautical Engineering · MIST · 2021–2025</div>
+        <div class="xlink-desc">
+          This was my final-year thesis project, completed under the supervision of 
+          Dr. Mohammad Akhter Jamil. Graduated 1st of 35 students with CGPA 3.81/4.00.
+        </div>
+      </div>
+      <div class="xlink-arrow">View Education Timeline →</div>
+    </a>
+
+    <!-- 01 OVERVIEW -->
+    <section class="pp-section">
+      <div class="pp-section-label">01 · The Problem</div>
+      <h2 class="pp-section-title">Why Build This?</h2>
+      <div class="pp-prose">
+        <p>
+          Multi-UAV swarm operations typically rely on a <strong>ground station</strong> for 
+          coordination, command, and inter-drone communication. This dependency creates two 
+          fundamental limitations: the swarm's range is bounded by the ground link, and a 
+          ground-station failure ends the mission.
+        </p>
+        <p>
+          The thesis asked a focused question: <strong>can a swarm operate without a ground 
+          station at all?</strong> — by elevating the coordination role into the air itself.
+        </p>
+        <p>
+          The answer became the core architectural choice: a <strong>master–slave configuration</strong> 
+          with one airborne hub aircraft acting as the Wi-Fi backbone for the rest of the swarm. 
+          Each slave drone runs distributed avionics and onboard AI vision (Raspberry Pi class 
+          computer) for autonomous decision-making, sub-meter-accurate formation flight, and 
+          dynamic target detection.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 ARCHITECTURE -->
+    <section class="pp-section">
+      <div class="pp-section-label">02 · System Architecture</div>
+      <h2 class="pp-section-title">Master–Slave with Airborne Wi-Fi Hub</h2>
+      <div class="pp-prose">
+        <p>
+          The hub aircraft — a swarm-hub octocopter — carries the Wi-Fi access point and serves 
+          as the in-air coordinator. Slave drones connect to the hub directly, enabling 
+          peer-to-peer formation control without external infrastructure.
+        </p>
+      </div>
+
+      <div class="arch-callout">
+        <div class="arch-grid">
+          <div class="arch-node master">
+            <div class="arch-node-label">Master · Wi-Fi Hub</div>
+            <div class="arch-node-title">Octocopter</div>
+            <div class="arch-node-desc">Carries Wi-Fi AP · Coordinates swarm · Distributes commands</div>
+          </div>
+          <div class="arch-link">
+            <svg viewBox="0 0 60 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M0 10h54M48 4l6 6-6 6" stroke-dasharray="3 3"/>
+            </svg>
+            <span>Wi-Fi Mesh</span>
+          </div>
+          <div class="arch-slaves">
+            <div class="arch-slave">Slave 1<br/><span style="font-size:0.6rem;color:var(--text3);">Raspberry Pi · AI Vision</span></div>
+            <div class="arch-slave">Slave 2<br/><span style="font-size:0.6rem;color:var(--text3);">Raspberry Pi · AI Vision</span></div>
+            <div class="arch-slave">Slave 3<br/><span style="font-size:0.6rem;color:var(--text3);">Raspberry Pi · AI Vision</span></div>
+            <div class="arch-slave">Slave N<br/><span style="font-size:0.6rem;color:var(--text3);">Distributed Avionics</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 HERO IMAGE -->
+    <section class="pp-section">
+      <div class="gallery large">
+        <div class="img-slot">
+          <img src="../assets/images/swarm/swarm_main.jpg" alt="The master–slave drone swarm — hub octocopter with two slave quadcopters and ground controller" loading="lazy" />
+          <div class="cap"><span class="fig">FIG 01</span> The master–slave swarm: the large 8-rotor hub octocopter (centre) carries the airborne Wi-Fi access point and onboard Raspberry Pi vision system, with two slave quadcopters that follow it in formation — no ground station required.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 KEY OUTCOMES -->
+    <section class="pp-section">
+      <div class="pp-section-label">03 · Results</div>
+      <h2 class="pp-section-title">What We Achieved</h2>
+      <div class="pp-metrics">
+        <div class="pp-metric">
+          <div class="pp-metric-value">&lt;1<span style="font-size:0.45em;color:var(--text2);background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial;">m</span></div>
+          <div class="pp-metric-label">Formation Accuracy</div>
+        </div>
+        <div class="pp-metric">
+          <div class="pp-metric-value">25<span style="font-size:0.45em;color:var(--text2);background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial;">+ min</span></div>
+          <div class="pp-metric-label">Autonomous Endurance</div>
+        </div>
+        <div class="pp-metric">
+          <div class="pp-metric-value">0<span style="font-size:0.45em;color:var(--text2);background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial;">GS</span></div>
+          <div class="pp-metric-label">Ground Stations Required</div>
+        </div>
+        <div class="pp-metric">
+          <div class="pp-metric-value">3<span style="font-size:0.45em;color:var(--text2);background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial;">papers</span></div>
+          <div class="pp-metric-label">Conference Publications</div>
+        </div>
+      </div>
+      <div class="pp-prose" style="margin-top: 2rem;">
+        <p>
+          The final platform validated the core hypothesis: ground-station-free multi-UAV 
+          formation flight is achievable with airborne networking and onboard AI. The work 
+          generated three peer-reviewed conference contributions and earned a competitive 
+          R&amp;D grant from MIST.
+        </p>
+      </div>
+    </section>
+
+    <!-- 05 BUILD PHASE PHOTOS -->
+    <section class="pp-section">
+      <div class="pp-section-label">04 · Behind the Scenes</div>
+      <h2 class="pp-section-title">Build &amp; Test Phase</h2>
+      <div class="pp-prose">
+        <p>From bench testing the Raspberry Pi avionics through to outdoor formation trials.</p>
+      </div>
+      <div class="photo-dump">
+        <div class="img-slot">
+          <img src="../assets/images/swarm/thesis_team.jpg" alt="Thesis project team with the hub octocopter" loading="lazy" />
+          <div class="cap">The thesis project team with the hub octocopter on the MIST grounds.</div>
+        </div>
+        <div class="img-slot">
+          <img src="../assets/images/swarm/lab_work_octa.jpg" alt="Hub octocopter on the bench with ground-control telemetry" loading="lazy" />
+          <div class="cap">Bench testing — the hub octocopter wired up for avionics and telemetry checks beside the ground-control laptop.</div>
+        </div>
+        <div class="img-slot">
+          <img src="../assets/images/swarm/me_with_octacopter_field.jpg" alt="Researcher with the hub octocopter at MIST" loading="lazy" />
+          <div class="cap">Researcher with the completed hub octocopter on the MIST field — the large 8-rotor platform ready for formation flight testing.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 RELATED PUBLICATIONS -->
+    <section class="pp-section">
+      <div class="pp-section-label">05 · Publications From This Work</div>
+      <h2 class="pp-section-title">Three Peer-Reviewed Papers</h2>
+      <div class="pp-prose">
+        <p>This thesis directly produced three conference publications. Click any paper to see venue details and links.</p>
+      </div>
+      <div class="related-pubs">
+
+        <div class="rel-pub">
+          <div class="rel-pub-year">2025</div>
+          <div>
+            <div class="rel-pub-title">Energy Budgeting for a Swarm-Hub Octocopter</div>
+            <div class="rel-pub-venue">AIAA Region VII Student Conference · Sydney, Australia</div>
+          </div>
+          <a href="https://doi.org/10.2514/6.2025-105286" class="rel-pub-link" target="_blank">↗ Read Paper</a>
+        </div>
+
+        <div class="rel-pub">
+          <div class="rel-pub-year">2025</div>
+          <div>
+            <div class="rel-pub-title">Ground-Station-Free Multi-UAV Formation with an Airborne Wi-Fi Hub and Distributed Avionics</div>
+            <div class="rel-pub-venue">IEEE WIE International Conference on ECE · Dhaka, Bangladesh</div>
+          </div>
+          <a href="https://doi.org/10.1109/WIECON-ECE69386.2025.11526570" class="rel-pub-link" target="_blank">↗ Read Paper</a>
+        </div>
+
+        <div class="rel-pub">
+          <div class="rel-pub-year">2025</div>
+          <div>
+            <div class="rel-pub-title">CFD-Derived Parasite-Drag Law of an Octocopter Airframe with Endurance Implications</div>
+            <div class="rel-pub-venue">ICMERE · Chattogram, Bangladesh</div>
+          </div>
+          <span class="rel-pub-link" style="color:var(--text3);font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.06em;">📄 In Press</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 08 TECH STACK -->
+    <section class="pp-section">
+      <div class="pp-section-label">06 · Engineering Tools</div>
+      <h2 class="pp-section-title">Tools &amp; Technologies</h2>
+      <div class="pp-stack">
+        <span class="pp-stack-pill">Raspberry Pi</span>
+        <span class="pp-stack-pill">PX4 Autopilot</span>
+        <span class="pp-stack-pill">Python</span>
+        <span class="pp-stack-pill">OpenCV</span>
+        <span class="pp-stack-pill">Wi-Fi Mesh</span>
+        <span class="pp-stack-pill">Distributed Avionics</span>
+        <span class="pp-stack-pill">Formation Control</span>
+        <span class="pp-stack-pill">SolidWorks</span>
+        <span class="pp-stack-pill">XFLR5</span>
+        <span class="pp-stack-pill">CFD Analysis</span>
+      </div>
+    </section>
+
+    <!-- 09 LEGACY -->
+    <section class="pp-section">
+      <div class="pp-section-label">07 · Legacy &amp; Ongoing Work</div>
+      <h2 class="pp-section-title">What This Project Spawned</h2>
+      <div class="pp-prose">
+        <p>
+          The thesis became the foundation for two follow-on undergraduate research projects 
+          that I co-supervised during my Research Assistant tenure:
+        </p>
+        <ul>
+          <li><strong>Real-Time Inter-Drone Collision Mitigation for UAV Swarm Architecture</strong> — extending the swarm's safety envelope.</li>
+          <li><strong>Sensor Data Fusion and Human Tracking in Swarm-Based Surveillance</strong> — enriching the perception stack.</li>
+        </ul>
+        <p>
+          The work also seeds my doctoral research at IISRI on aerial robotics, multi-UAV 
+          systems, autonomous perception, and wildfire detection — a natural progression from 
+          ground-station-free coordination to full aerial autonomy.
+        </p>
+      </div>
+    </section>
+
+    <!-- NAV -->
+    <div class="pp-nav-projects">
+      <a href="vtol-uav.html" class="pp-nav-card">
+        <div class="label">← Previous Project</div>
+        <div class="title">Fixed-Wing VTOL UAV</div>
+      </a>
+      <a href="dbf-2025.html" class="pp-nav-card next">
+        <div class="label">Next Project →</div>
+        <div class="title">AIAA DBF 2025 (Team Leader)</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">© 2026 <span>Kazi Tauhid Mokbul Hussain</span></div>
+    <div class="footer-text"><a href="../index.html">← Back to home</a></div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixed-Wing VTOL UAV — Kazi Tauhid Mokbul Hussain</title>
+  <meta name="description" content="Engineering case study: fixed-wing VTOL UAV powered by a piston engine, built for hill-terrain surveillance across 4 prototype generations." />
+  <meta property="og:title" content="Fixed-Wing VTOL UAV — Kazi Tauhid Mokbul Hussain" />
+  <meta property="og:description" content="Engineering case study: fixed-wing VTOL UAV powered by a piston engine, built for hill-terrain surveillance across 4 prototype generations at MIST." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kazitauhid.github.io/projects/vtol-uav.html" />
+  <meta property="og:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fixed-Wing VTOL UAV — Kazi Tauhid Mokbul Hussain" />
+  <meta name="twitter:description" content="Engineering case study: fixed-wing VTOL UAV powered by a piston engine, built for hill-terrain surveillance across 4 prototype generations at MIST." />
+  <meta name="twitter:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    main { max-width: 1100px; margin: 0 auto; padding: 6rem 2.5rem 4rem; position: relative; z-index: 1; }
+
+    .pp-hero { padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 3rem; }
+    .pp-meta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .pp-status, .pp-funded, .pp-tag {
+      display: inline-block; font-family: var(--ff-mono); font-size: 0.62rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 3px;
+    }
+    .pp-status { background: rgba(59,130,246,0.1); color: var(--accent2); border: 1px solid rgba(59,130,246,0.25); }
+    .pp-funded { background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.25); }
+    .pp-tag { background: rgba(99,179,237,0.06); color: var(--text3); border: 1px solid var(--border2); }
+    .pp-title { font-family: var(--ff-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .pp-tagline { font-size: 1.05rem; color: var(--text2); line-height: 1.7; max-width: 800px; }
+    .pp-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .pp-info-item .label { font-family: var(--ff-mono); font-size: 0.6rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .pp-info-item .value { font-family: var(--ff-display); font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .pp-info-item .value.accent { color: var(--accent2); }
+
+    .pp-section { margin-bottom: 4rem; }
+    .pp-section-label { font-family: var(--ff-mono); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .pp-section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .pp-section-title { font-family: var(--ff-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
+    .pp-prose p { color: var(--text2); line-height: 1.85; margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .pp-prose strong { color: var(--text); }
+    .pp-prose a { color: var(--accent2); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .pp-prose a:hover { border-color: var(--accent2); }
+    .pp-prose ul { margin: 1rem 0 1.5rem 1.5rem; color: var(--text2); }
+    .pp-prose ul li { margin-bottom: 0.6rem; line-height: 1.7; font-size: 0.95rem; }
+
+    /* PROTOTYPE CHAPTERS */
+    .proto-chapter { margin-bottom: 3.5rem; }
+    .proto-chapter-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .proto-chapter-num {
+      width: 64px; height: 64px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-display); font-size: 1.4rem; font-weight: 800; color: white;
+      box-shadow: 0 0 24px rgba(59,130,246,0.3);
+    }
+    .proto-chapter-title { font-family: var(--ff-display); font-size: 1.5rem; font-weight: 800; color: var(--text); line-height: 1.2; }
+    .proto-chapter-subtitle { font-family: var(--ff-mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-top: 0.25rem; }
+
+    .proto-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .proto-content .proto-text p { color: var(--text2); line-height: 1.85; font-size: 0.92rem; margin-bottom: 1rem; }
+    .proto-content .proto-text strong { color: var(--text); }
+    .proto-spec-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+    .proto-spec-item {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1rem; font-size: 0.82rem;
+      padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+    }
+    .proto-spec-item .key { font-family: var(--ff-mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; padding-top: 0.2rem; }
+    .proto-spec-item .val { color: var(--text); }
+
+    /* GALLERY */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+    .gallery.large { grid-template-columns: 1fr; }
+    .gallery.split { grid-template-columns: repeat(2, 1fr); }
+    .gallery.three { grid-template-columns: repeat(3, 1fr); }
+
+    /* PHOTO DUMP */
+    .photo-dump { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+
+    /* RESULTS */
+    .pp-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
+    .pp-metric { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 1.5rem; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+    .pp-metric:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--glow); }
+    .pp-metric-value { font-family: var(--ff-display); font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--accent2), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; letter-spacing: -0.02em; }
+    .pp-metric-label { font-family: var(--ff-mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.6rem; }
+
+    /* TECH STACK */
+    .pp-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pp-stack-pill { font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.05em; padding: 0.4rem 0.9rem; background: rgba(99,179,237,0.06); border: 1px solid var(--border); border-radius: 4px; color: var(--text2); }
+
+    /* PROJECT NAV */
+    .pp-nav-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+    .pp-nav-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius2); padding: 1.5rem; transition: border-color 0.25s, transform 0.25s; }
+    .pp-nav-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .pp-nav-card.next { text-align: right; }
+    .pp-nav-card .label { font-family: var(--ff-mono); font-size: 0.62rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .pp-nav-card .title { font-family: var(--ff-display); font-size: 1rem; font-weight: 700; color: var(--text); }
+
+    @media (max-width: 768px) {
+      main { padding: 5rem 1.25rem 2.5rem; }
+      .gallery.split, .gallery.three { grid-template-columns: 1fr; }
+      .photo-dump { grid-template-columns: repeat(2, 1fr); }
+      .pp-nav-projects { grid-template-columns: 1fr; }
+      .pp-nav-card.next { text-align: left; }
+      .proto-content { grid-template-columns: 1fr; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9V6JMSJDV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H9V6JMSJDV');
+  </script>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="starfield"></canvas>
+
+  <nav id="navbar">
+    <a href="../index.html#hero" class="nav-logo">Kazi T. M. Hussain</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close">✕</button>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#publications">Publications</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <main>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="../index.html#research">Research</a>
+      <span class="sep">/</span>
+      <span class="current">Fixed-Wing VTOL UAV</span>
+    </nav>
+
+    <!-- HERO -->
+    <div class="pp-hero">
+      <div class="pp-meta-row">
+        <span class="pp-status">✓ Complete · 4 Prototypes</span>
+        <span class="pp-funded">🏛 Defence-Sector Programme</span>
+        <span class="pp-tag">June – November 2025</span>
+      </div>
+      <h1 class="pp-title">Fixed-Wing VTOL UAV for Hill-Terrain Surveillance</h1>
+      <p class="pp-tagline">
+        Six-month R&amp;D programme building a piston-engine-powered fixed-wing Vertical 
+        Take-Off and Landing UAV. Across four prototype generations, the platform progressed 
+        from concept validation through to a mission-ready surveillance aircraft engineered 
+        for hill-terrain operational environments.
+      </p>
+      <div class="pp-info-grid">
+        <div class="pp-info-item">
+          <div class="label">My Role</div>
+          <div class="value">Research Assistant</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Duration</div>
+          <div class="value">6 months</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Prototypes</div>
+          <div class="value accent">4 generations</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Configuration</div>
+          <div class="value">Fixed-Wing VTOL</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Propulsion</div>
+          <div class="value">Piston Engine</div>
+        </div>
+        <div class="pp-info-item">
+          <div class="label">Mission</div>
+          <div class="value">Hill-Terrain Surveillance</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED EXPERIENCE BANNER -->
+    <a href="../experience/ra-vtol-mist.html" class="xlink-banner">
+      <div>
+        <div class="xlink-label">🔗 Related Experience</div>
+        <div class="xlink-title">My Role: Research Assistant at MIST · June–November 2025</div>
+        <div class="xlink-desc">
+          See the full breakdown of my contributions to this programme — technical R&amp;D, 
+          undergraduate teaching, and accreditation administration tracks.
+        </div>
+      </div>
+      <div class="xlink-arrow">View My RA Role →</div>
+    </a>
+
+    <!-- 01 OVERVIEW -->
+    <section class="pp-section">
+      <div class="pp-section-label">01 · Overview</div>
+      <h2 class="pp-section-title">The Mission &amp; Engineering Approach</h2>
+      <div class="pp-prose">
+        <p>
+          <strong>The mission profile:</strong> a UAV capable of operating in <strong>hill terrain</strong> — 
+          launching and recovering from confined unprepared areas (no runways), while delivering the 
+          range and endurance characteristic of a fixed-wing platform. This combination drove the 
+          choice of a <strong>fixed-wing VTOL</strong> configuration: vertical take-off and landing 
+          for site flexibility, fixed-wing flight for efficient cruise.
+        </p>
+        <p>
+          <strong>The propulsion choice was unconventional</strong> — a piston engine rather than 
+          electric. This was a deliberate engineering trade: piston propulsion delivers significantly 
+          longer endurance and tolerates field-refuelling in remote operations, at the cost of added 
+          complexity in vibration management, fuel system integration, and engine-mount design.
+        </p>
+        <p>
+          <strong>The R&amp;D approach was iterative.</strong> Rather than attempting a single 
+          deliverable, the programme followed four progressive prototype generations, each addressing 
+          specific issues identified in the prior build. Key contributions across the programme:
+        </p>
+        <ul>
+          <li>Validating piston-engine VTOL feasibility through P1 flight testing.</li>
+          <li>Refining transition-mode handling and stability through P2.</li>
+          <li>Integrating mission-relevant payload capability in P3.</li>
+          <li>Delivering a mission-ready platform meeting all programme specifications in P4.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HERO IMAGE -->
+    <section class="pp-section">
+      <div class="gallery large">
+        <div class="img-slot">
+          <img src="../assets/images/vtol/me_with_final_vtol_field.jpeg" alt="Researcher with the final VTOL UAV on the field" loading="lazy" />
+          <div class="cap"><span class="fig">FIG 01</span> The final VTOL UAV on the field — fixed wing for efficient cruise, four wing-mounted lift rotors for VTOL, and a rear-mounted piston engine for extended endurance.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 PROTOTYPE CHAPTERS -->
+    <section class="pp-section">
+      <div class="pp-section-label">02 · Engineering Evolution</div>
+      <h2 class="pp-section-title">Four Prototype Generations</h2>
+      <div class="pp-prose">
+        <p>
+          Each prototype was a self-contained engineering build, structured to test and resolve 
+          specific design questions before progressing.
+        </p>
+      </div>
+
+      <!-- PROTOTYPE 1 -->
+      <div class="proto-chapter">
+        <div class="proto-chapter-header">
+          <div class="proto-chapter-num">P1</div>
+          <div>
+            <div class="proto-chapter-title">Prototype 1 — Concept Validation</div>
+            <div class="proto-chapter-subtitle">JUNE 2025 · PROOF OF CONCEPT</div>
+          </div>
+        </div>
+        <div class="proto-content">
+          <div class="proto-text">
+            <p>
+              The first build was a <strong>proof-of-concept platform</strong> answering a single 
+              question: can a piston-engine fixed-wing VTOL configuration achieve a stable hover-to-cruise 
+              transition? Geometry was kept simple, the airframe was deliberately conservative, and 
+              instrumentation focused on capturing transition-mode behaviour.
+            </p>
+            <div class="proto-spec-list">
+              <div class="proto-spec-item"><span class="key">Goal</span><span class="val">Concept validation</span></div>
+              <div class="proto-spec-item"><span class="key">Outcome</span><span class="val">Hover-to-cruise transition demonstrated</span></div>
+              <div class="proto-spec-item"><span class="key">Lessons</span><span class="val">Stability margins required refinement</span></div>
+            </div>
+          </div>
+          <div class="img-slot">
+            <img src="../assets/images/vtol/prototype_1.jpeg" alt="Prototype 1 — orange and grey proof-of-concept VTOL airframe in the lab" loading="lazy" />
+            <div class="cap"><span class="fig">FIG 02</span> Prototype 1 — the proof-of-concept airframe. Conservative geometry with four wing-mounted lift rotors and a rear-mounted piston engine, built to validate the hover-to-cruise transition.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTOTYPE 2 -->
+      <div class="proto-chapter">
+        <div class="proto-chapter-header">
+          <div class="proto-chapter-num">P2</div>
+          <div>
+            <div class="proto-chapter-title">Prototype 2 — Stability &amp; Refinement</div>
+            <div class="proto-chapter-subtitle">JULY – AUGUST 2025 · CONTROL REFINEMENT</div>
+          </div>
+        </div>
+        <div class="proto-content">
+          <div class="img-slot">
+            <img src="../assets/images/vtol/prototype_2.jpeg" alt="Prototype 2 — red and black refined VTOL airframe on the field" loading="lazy" />
+            <div class="cap"><span class="fig">FIG 03</span> Prototype 2 on the field — refined airframe geometry and re-tuned controls for stable, repeatable transitions.</div>
+          </div>
+          <div class="proto-text">
+            <p>
+              Building directly on the P1 lessons, this iteration <strong>addressed stability margins 
+              and transition-mode handling</strong>. The airframe geometry was refined, control 
+              surface authorities were re-tuned, and the propulsion-to-airframe interface was reworked 
+              to reduce vibration coupling.
+            </p>
+            <div class="proto-spec-list">
+              <div class="proto-spec-item"><span class="key">Goal</span><span class="val">Stable, repeatable transitions</span></div>
+              <div class="proto-spec-item"><span class="key">Changes</span><span class="val">Refined airframe, retuned controls</span></div>
+              <div class="proto-spec-item"><span class="key">Outcome</span><span class="val">Reliable hover-to-cruise &amp; back</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTOTYPE 3 -->
+      <div class="proto-chapter">
+        <div class="proto-chapter-header">
+          <div class="proto-chapter-num">P3</div>
+          <div>
+            <div class="proto-chapter-title">Prototype 3 — Mission Capability</div>
+            <div class="proto-chapter-subtitle">SEPTEMBER – OCTOBER 2025 · PAYLOAD &amp; MISSION</div>
+          </div>
+        </div>
+        <div class="proto-content">
+          <div class="proto-text">
+            <p>
+              The mid-programme upgrade. With the airframe and transition behaviour stabilised, 
+              focus shifted to <strong>delivering mission capability</strong> — payload integration, 
+              hill-terrain operational requirements, and the operational envelope needed for 
+              real surveillance missions.
+            </p>
+            <div class="proto-spec-list">
+              <div class="proto-spec-item"><span class="key">Goal</span><span class="val">Mission-relevant capability</span></div>
+              <div class="proto-spec-item"><span class="key">Additions</span><span class="val">Payload bay, mission profile</span></div>
+              <div class="proto-spec-item"><span class="key">Outcome</span><span class="val">First mission-capable build</span></div>
+            </div>
+          </div>
+          <div class="img-slot">
+            <img src="../assets/images/vtol/prototype_3_flying.jpeg" alt="Prototype 3 in flight" loading="lazy" />
+            <div class="cap"><span class="fig">FIG 04</span> Prototype 3 airborne — the first mission-capable build, captured in cruise flight during testing.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTOTYPE 4 -->
+      <div class="proto-chapter">
+        <div class="proto-chapter-header">
+          <div class="proto-chapter-num">P4</div>
+          <div>
+            <div class="proto-chapter-title">Prototype 4 — Final Deliverable</div>
+            <div class="proto-chapter-subtitle">NOVEMBER 2025 · MISSION-READY PLATFORM</div>
+          </div>
+        </div>
+        <div class="proto-content">
+          <div class="img-slot">
+            <img src="../assets/images/vtol/final_vtol_lab.jpg" alt="Final VTOL UAV prototype in the lab" loading="lazy" />
+            <div class="cap"><span class="fig">FIG 05</span> Prototype 4 — the final mission-ready deliverable. Clean composite airframe with rear-mounted piston engine and quad-lift rotors, meeting the full programme specification for hill-terrain surveillance.</div>
+          </div>
+          <div class="proto-text">
+            <p>
+              <strong>The final platform.</strong> P4 consolidated the lessons from all earlier 
+              iterations into a deliverable that met the programme's full specification — 
+              hill-terrain surveillance capability, piston-engine endurance, and a complete 
+              VTOL operational envelope.
+            </p>
+            <div class="proto-spec-list">
+              <div class="proto-spec-item"><span class="key">Goal</span><span class="val">Final mission-ready aircraft</span></div>
+              <div class="proto-spec-item"><span class="key">Status</span><span class="val">Full specification compliance</span></div>
+              <div class="proto-spec-item"><span class="key">Capability</span><span class="val">Hill-terrain surveillance ready</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 WORKING PHASE PHOTO DUMP -->
+    <section class="pp-section">
+      <div class="pp-section-label">03 · Behind the Scenes</div>
+      <h2 class="pp-section-title">Workshop &amp; Build Phase</h2>
+      <div class="pp-prose">
+        <p>The reality of any prototyping programme — workshop assembly, structural testing, electronics integration, and field preparation. A photo dump from the build phase.</p>
+      </div>
+      <div class="photo-dump">
+        <div class="img-slot">
+          <img src="../assets/images/vtol/lab_prototype_1_and_2.jpg" alt="Two VTOL prototype generations side by side in the lab" loading="lazy" />
+          <div class="cap">Two prototype generations side by side in the lab — the orange airframe in front of an earlier build on the bench, showing the iterative design process.</div>
+        </div>
+        <div class="img-slot">
+          <img src="../assets/images/vtol/exhibition.jpeg" alt="Researcher presenting the VTOL UAV at a MIST research exhibition" loading="lazy" />
+          <div class="cap">Presenting the programme at a MIST research exhibition — the VTOL platform shown alongside other departmental aircraft.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 FLIGHT TEST VIDEOS -->
+    <section class="pp-section">
+      <div class="pp-section-label">04 · Flight Footage</div>
+      <h2 class="pp-section-title">Flight Test Videos</h2>
+      <div class="pp-prose">
+        <p>Recorded footage of flight tests across the four prototype generations.</p>
+      </div>
+      <div class="gallery large">
+        <div class="video-slot">
+          <div class="video-ph">
+            <div class="play">▶</div>
+            <span>VTOL in Operation — Field Test</span>
+            <span style="font-size:0.6rem;opacity:0.7;">YouTube embed coming soon</span>
+          </div>
+          <div class="cap"><span class="fig" style="font-family:var(--ff-mono);color:var(--accent);">VID 01</span> VTOL UAV in field operation — hover, transition, and cruise flight over the test site.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 TECH STACK -->
+    <section class="pp-section">
+      <div class="pp-section-label">05 · Engineering Tools</div>
+      <h2 class="pp-section-title">Tools &amp; Technologies</h2>
+      <div class="pp-stack">
+        <span class="pp-stack-pill">SolidWorks</span>
+        <span class="pp-stack-pill">XFLR5</span>
+        <span class="pp-stack-pill">Simulink</span>
+        <span class="pp-stack-pill">PX4 Autopilot</span>
+        <span class="pp-stack-pill">Piston Engine</span>
+        <span class="pp-stack-pill">Composite Construction</span>
+        <span class="pp-stack-pill">Servo Actuation</span>
+        <span class="pp-stack-pill">Telemetry Radio</span>
+      </div>
+    </section>
+
+    <!-- PROJECT NAV -->
+    <div class="pp-nav-projects">
+      <a href="phd-research.html" class="pp-nav-card">
+        <div class="label">← Previous Project</div>
+        <div class="title">PhD Research — Robust Multimodal Perception</div>
+      </a>
+      <a href="thesis-swarm.html" class="pp-nav-card next">
+        <div class="label">Next Project →</div>
+        <div class="title">Master–Slave Drone Swarm (Thesis)</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">© 2026 <span>Kazi Tauhid Mokbul Hussain</span></div>
+    <div class="footer-text"><a href="../index.html">← Back to home</a></div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
