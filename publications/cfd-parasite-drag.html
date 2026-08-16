@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://i.ytimg.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CFD-Derived Parasite-Drag Law of an Octocopter Airframe with Endurance Implications | Kazi Tauhid Mokbul Hussain</title>
+  <meta name="description" content="Octocopter designers lack a simple, reliable way to estimate airframe drag — the quantity that ultimately sets cruise power and endurance. This study isolates airframe-only parasit" />
+  <meta property="og:title" content="CFD-Derived Parasite-Drag Law of an Octocopter Airframe with Endurance Implications" />
+  <meta property="og:description" content="Octocopter designers lack a simple, reliable way to estimate airframe drag — the quantity that ultimately sets cruise power and endurance. This study isolates airframe-only parasit" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://kazitauhid.github.io/publications/cfd-parasite-drag.html" />
+  <meta property="og:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CFD-Derived Parasite-Drag Law of an Octocopter Airframe with Endurance Implications" />
+  <meta name="twitter:description" content="Octocopter designers lack a simple, reliable way to estimate airframe drag — the quantity that ultimately sets cruise power and endurance. This study isolates airframe-only parasit" />
+  <meta name="twitter:image" content="https://kazitauhid.github.io/assets/images/business_pic.jpg" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9V6JMSJDV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H9V6JMSJDV');
+  </script>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="starfield"></canvas>
+
+  <nav id="navbar">
+    <a href="../index.html#hero" class="nav-logo">Kazi T. M. Hussain</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#news">News</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#publications">Publications</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close">✕</button>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#news">News</a>
+    <a href="../index.html#research">Research</a>
+    <a href="../index.html#honors">Honours</a>
+    <a href="../index.html#publications">Publications</a>
+    <a href="../index.html#skills">Skills</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#leadership">Leadership</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
+  <main class="paper">
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a><span class="sep">/</span>
+      <a href="../index.html#publications">Publications</a><span class="sep">/</span>
+      <span class="current">2025</span>
+    </nav>
+
+    <div class="paper-status-row">
+        <span class="paper-badge first">⭐ First Author</span>
+        <span class="paper-badge press">✓ Published</span>
+    </div>
+    <h1 class="paper-title">CFD-Derived Parasite-Drag Law of an Octocopter Airframe with Endurance Implications</h1>
+    <div class="paper-authors"><span class="me">Hussain, K. T. M.</span>, Kabir, M., Talukder, I., &amp; Atul, F. R.</div>
+    <div class="paper-venue">Int. Conf. on Mechanical Engineering &amp; Renewable Energy (ICMERE 2025) · Chattogram, Bangladesh</div>
+    <div class="paper-actions">
+      <a href="https://doi.org/10.38032/scse.2026.4.223" class="paper-btn primary" target="_blank">↗ Read on publisher</a>
+      <a href="../projects/thesis-swarm.html" class="paper-btn">🔗 Swarm Thesis</a>
+      <a href="../index.html#publications" class="paper-btn">← All publications</a>
+    </div>
+
+    <section class="paper-section">
+      <div class="paper-h2">At a glance</div>
+      <div class="paper-facts">
+        <div class="paper-fact"><div class="v">1–15 m/s</div><div class="l">Airspeed range</div></div>
+        <div class="paper-fact"><div class="v">k–ω SST</div><div class="l">Turbulence model</div></div>
+        <div class="paper-fact"><div class="v">D ∝ V²</div><div class="l">Parasite-drag law</div></div>
+        <div class="paper-fact"><div class="v">7.2 kg</div><div class="l">Octocopter</div></div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-h2">Summary</div>
+      <div class="paper-prose">
+        <p>Octocopter designers lack a simple, reliable way to estimate airframe drag — the quantity that ultimately sets cruise power and endurance. This study isolates airframe-only parasite drag (rotors excluded) for a 7.2 kg octocopter using CFD across 1–15 m/s, with a k–ω SST turbulence closure and a verified numerical setup.</p>
+        <p>The extracted forces collapse onto a single airspeed-based quadratic law, D = a·V², which maps directly to a cubic electrical-power model P = P₀ + k·V³ and a closed-form range-optimal cruise speed. Flow analysis shows the drag rise at higher speeds is driven by expanding separated regions at the arm–hub and landing-gear junctions, and that simple geometric fixes — rounding sharp corners and refining landing-gear profiles — can meaningfully cut drag.</p>
+      </div>
+    </section>
+
+
+
+    <section class="paper-section">
+      <div class="paper-h2">Highlights</div>
+      <ul class="paper-highlights">
+        <li>A portable, single-parameter parasite-drag law usable for design and mission planning without re-running CFD.</li>
+        <li>A closed-form range-optimal cruise speed derived from the drag law.</li>
+        <li>Identifies arm–hub and landing-gear junctions as the dominant drag sources.</li>
+      </ul>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-h2">Cite this paper</div>
+      <div class="bibtex-code">
+        <button class="bibtex-copy" type="button">Copy</button>
+        <pre>@inproceedings{hussain2025cfd,
+  title     = {CFD-Derived Parasite-Drag Law of an Octocopter Airframe with Endurance Implications},
+  author    = {Hussain, K. T. M. and Kabir, M. and Talukder, I. and Atul, F. R.},
+  booktitle = {International Conference on Mechanical Engineering and Renewable Energy (ICMERE)},
+  year      = {2025},
+  address   = {Chattogram, Bangladesh},
+  doi       = {10.38032/scse.2026.4.223}
+}</pre>
+      </div>
+    </section>
+
+    <div class="paper-nav">
+      <a href="ground-station-free.html" class="paper-btn">← Ground-Station-Free Multi-UAV Formation …</a>
+      <a href="self-healing-cmc.html" class="paper-btn">A Detailed Analysis of Self-Healing Cera… →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">© 2026 <span>Kazi Tauhid Mokbul Hussain</span> · IISRI, Deakin University</div>
+    <div class="footer-text" style="font-style:italic;opacity:.5;">Building machines that see, think, and fly.</div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
